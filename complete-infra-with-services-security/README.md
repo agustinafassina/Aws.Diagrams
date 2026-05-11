@@ -1,10 +1,10 @@
-# Complete infrastructure with security services in Aws
+# 🛡️ Complete infrastructure with security services on AWS
 This AWS security setup covers DNS protection, network visibility, web application filtering, container and instance vulnerability scanning, storage protection, centralized logging, configuration auditing, and security posture management. It combines services such as Route 53 Query Logging, AWS Shield, VPC Flow Logs, GuardDuty, Network Firewall, WAF, Inspector, ECR scanning, S3 Block Public Access, Macie, CloudTrail, AWS Config, Security Hub, CloudWatch Alarms, IAM, KMS, and Secrets Manager to provide layered security across the entire infrastructure.
 
-## Diagram
-- [`infrastructure-aws.jpg`](./infrastructure-security-aws.jpg) — AWS infrastructure diagram.
+## 🖼️ Diagram
+- [`infrastructure-security-aws.jpg`](./infrastructure-security-aws.jpg) — AWS infrastructure and security diagram.
 
-### Aws Services
+## 🔐 AWS services (reference matrix)
 | Component                 | Recommended Security Service                 | Purpose                                                      | Where Logs Are Stored                          | Where They Are Viewed                                 |
 | ------------------------- | -------------------------------------------- | ------------------------------------------------------------ | ---------------------------------------------- | ----------------------------------------------------- |
 | Route 53                  | Route 53 Query Logging + AWS Shield          | DNS auditing and DDoS protection.                            | CloudWatch Logs / Shield internal telemetry.   | CloudWatch Logs / Shield console.                     |
