@@ -12,6 +12,7 @@ Each topic lives in **its own folder** with a **README** (what the drawing shows
 | 🏗️ [`complete-infrastructure/`](./complete-infrastructure/) | [`infrastructure-aws.jpg`](./complete-infrastructure/infrastructure-aws.jpg) | [README](./complete-infrastructure/README.md) — ALB, WAF, ECS/Docker, ECR, path-based routing (`/api`, `/api/v2`), CloudWatch, CloudTrail, S3 logging. |
 | 🛡️ [`complete-infra-with-services-security/`](./complete-infra-with-services-security/) | [`infrastructure-security-aws.jpg`](./complete-infra-with-services-security/infrastructure-security-aws.jpg) | [README](./complete-infra-with-services-security/README.md) — layered security (Shield, GuardDuty, WAF, Inspector, Macie, Config, Security Hub, etc.) and a **service ↔ control** matrix. |
 | 🖥️ [`ec2-bastion-and-private-rds/`](./ec2-bastion-and-private-rds/) | [`diagram.jpg`](./ec2-bastion-and-private-rds/diagram.jpg) | [README](./ec2-bastion-and-private-rds/README.md) — private **RDS**, **EC2 + Docker** application tier, **EC2 bastion**, developer access via **SSH** (`-L` local port forwarding). |
+| 🌐 [`gateway/`](./gateway/) | [`diagram.jpg`](./gateway/diagram.jpg) | [README](./gateway/README.md) — **custom domain** → **API Gateway** → **ALB** → **Docker** on **ECS** (and optional **EC2** targets). |
 
 #### 🖼️ Previews
 **🏗️ [Complete AWS infrastructure](./complete-infrastructure/README.md)**  
@@ -22,6 +23,9 @@ Each topic lives in **its own folder** with a **README** (what the drawing shows
 
 **🖥️ [EC2 (Docker), bastion, and private RDS](./ec2-bastion-and-private-rds/README.md)**  
 ![EC2 bastion to private RDS — developer SSH path](./ec2-bastion-and-private-rds/diagram.jpg)
+
+**🌐 [Domain → API Gateway → ALB → ECS](./gateway/README.md)**  
+![Domain API Gateway ALB ECS request path](./gateway/diagram.jpg)
 
 ## 📌 Planned additions
 - **☁️ Cloud solutions on AWS:** high availability patterns, multi-account setups, networking, observability, cost awareness.
