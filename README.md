@@ -2,6 +2,20 @@
 A reference repository for **architecture and solutions on Amazon Web Services (AWS)**: exported diagrams, cloud design patterns, **databases**, **best practices**, and complementary material added over time.
 It started as a **diagram** collection (regional views, security, and services); the goal is to **grow** into short guides, design notes, checklists, and other resources useful for teams building on AWS—without replacing the official AWS documentation.
 
+## 🚀 How to use this repo
+1. **Pick a topic** from the table below or the [browse-by-topic](#browse-by-topic) index.
+2. **Open the folder README** — each one explains what the diagram shows, the data flow, and design notes.
+3. **Use the image** (`diagram.jpg` or named export) in reviews, onboarding, or design docs; link back to the folder when you share it.
+
+This repo documents **architecture intent**, not deployment code. For implementation details, use the [AWS documentation](https://docs.aws.amazon.com/) and your team’s IaC standards.
+
+## 🧭 Browse by topic
+| Topic | Diagrams | What you’ll find |
+| --- | --- | --- |
+| **🌐 Ingress & APIs** | [`gateway/`](./gateway/), [`complete-infrastructure/`](./complete-infrastructure/) | Public API path (domain → API Gateway → ALB → ECS), full regional stack with ALB, WAF, path routing, containers. |
+| **🛡️ Security & compliance** | [`complete-infra-with-services-security/`](./complete-infra-with-services-security/) | Layered controls (Shield, GuardDuty, WAF, Inspector, Macie, Config, Security Hub) and service ↔ control mapping. |
+| **🗄️ Data & private access** | [`ec2-bastion-and-private-rds/`](./ec2-bastion-and-private-rds/) | Private RDS, app on EC2/Docker, bastion + **SSH** tunnel for developers. |
+
 ## 📚 Current contents
 ### 🗺️ Diagrams
 Each topic lives in **its own folder** with a **README** (what the drawing shows, link to the image, and any tables or notes). Images are typically JPG, PNG, or SVG depending on the tool.
