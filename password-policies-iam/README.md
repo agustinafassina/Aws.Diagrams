@@ -1,11 +1,9 @@
 # 🔐 IAM password policies, rotation, and MFA
-
 Guide for hardening **human IAM users** in an AWS account: a strong **account password policy**, regular **rotation**, and **multi-factor authentication (MFA)**. Together they reduce credential theft and weak-password risk for console and programmatic workflows that still rely on IAM users.
 
 > **Scope:** This folder documents **IAM account password policy** and related controls. **MFA** is not configured inside the password policy—it is enforced per user (or via permission boundaries / SCPs). **IAM Identity Center (SSO)** uses its own session and IdP policies when you federate users instead of long-lived IAM users.
 
 ## 🎯 Goals
-
 | Goal | Control |
 | --- | --- |
 | Strong passwords | Account password policy (length, character classes) |
@@ -16,11 +14,9 @@ Guide for hardening **human IAM users** in an AWS account: a strong **account pa
 | Ongoing access review | **IAM Access Analyzer**, credential reports, least privilege |
 
 ## 📋 IAM account password policy
-
 The **account password policy** applies to **IAM users** who have a console password. It is **one policy per account** (not per user). Set it in **IAM → Account settings → Password policy**, or with the API/CLI (`UpdateAccountPasswordPolicy`).
 
 ### Typical settings
-
 | Setting | Recommendation | Notes |
 | --- | --- | --- |
 | **Minimum password length** | 14+ (or org standard) | Longer passwords resist brute force better than complexity alone. |
@@ -33,14 +29,12 @@ The **account password policy** applies to **IAM users** who have a console pass
 | **Prevent password reuse** | ✅ | Remember **24** previous passwords (AWS maximum for history). |
 
 ### 🔁 Rotation (expiration)
-
 - **Maximum password age** forces users to set a new password after N days (common values: **60–90** days; align with your compliance framework).
 - Users see prompts in the **AWS Management Console** when the password is about to expire or has expired.
 - **Service accounts** should **not** use console passwords; use **IAM roles** and short-lived credentials instead so rotation policy applies only to people.
 - Pair expiration with **password history** so users cannot rotate back to an old password.
 
 ### Example: CLI
-
 ```bash
 aws iam update-account-password-policy \
   --minimum-password-length 14 \
@@ -54,7 +48,6 @@ aws iam update-account-password-policy \
 ```
 
 ### Example: CloudFormation (snippet)
-
 ```yaml
 AccountPasswordPolicy:
   Type: AWS::IAM::AccountPasswordPolicy
@@ -70,7 +63,6 @@ AccountPasswordPolicy:
 ```
 
 ## 🔑 MFA (separate from password policy)
-
 **MFA is mandatory for production accounts** where IAM users can sign in to the console or use sensitive API calls. Configure it per user under **IAM → Users → Security credentials → Assign MFA device**.
 
 | MFA type | Use case |
@@ -95,7 +87,6 @@ Example condition (illustrative—adapt actions to your needs):
 ```
 
 ## 🔍 Related IAM security practices
-
 - **🔎 IAM Access Analyzer:** find resources shared externally and validate intended access; run periodically and on changes.
 - **📊 Credential report:** download **IAM credential report** to find users without MFA, old passwords, or unused access keys.
 - **🚫 Access keys:** disable console password for users that only need API access via roles; rotate keys on a schedule if keys are unavoidable.
