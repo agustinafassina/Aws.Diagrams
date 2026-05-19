@@ -13,7 +13,7 @@ This repo documents **architecture intent**, not deployment code. For implementa
 | Topic | Diagrams | What you’ll find |
 | --- | --- | --- |
 | **🌐 Ingress & APIs** | [`gateway/`](./gateway/), [`complete-infrastructure/`](./complete-infrastructure/) | Public API path (domain → API Gateway → ALB → ECS), full regional stack with ALB, WAF, path routing, containers. |
-| **🛡️ Security & compliance** | [`complete-infra-with-services-security/`](./complete-infra-with-services-security/) | Layered controls (Shield, GuardDuty, WAF, Inspector, Macie, Config, Security Hub) and service ↔ control mapping. |
+| **🛡️ Security & compliance** | [`complete-infra-with-services-security/`](./complete-infra-with-services-security/), [`password-policies-iam/`](./password-policies-iam/) | Layered controls (Shield, GuardDuty, WAF, Inspector, Macie, Config, Security Hub); **IAM** password policy, rotation, **MFA**, Access Analyzer. |
 | **🗄️ Data & private access** | [`ec2-bastion-and-private-rds/`](./ec2-bastion-and-private-rds/) | Private RDS, app on EC2/Docker, bastion + **SSH** tunnel for developers. |
 
 ## 📚 Current contents
@@ -26,6 +26,7 @@ Each topic lives in **its own folder** with a **README** (what the drawing shows
 | 🛡️ [`complete-infra-with-services-security/`](./complete-infra-with-services-security/) | [`infrastructure-security-aws.jpg`](./complete-infra-with-services-security/infrastructure-security-aws.jpg) | [README](./complete-infra-with-services-security/README.md) — layered security (Shield, GuardDuty, WAF, Inspector, Macie, Config, Security Hub, etc.) and a **service ↔ control** matrix. |
 | 🖥️ [`ec2-bastion-and-private-rds/`](./ec2-bastion-and-private-rds/) | [`diagram.jpg`](./ec2-bastion-and-private-rds/diagram.jpg) | [README](./ec2-bastion-and-private-rds/README.md) — private **RDS**, **EC2 + Docker** application tier, **EC2 bastion**, developer access via **SSH** (`-L` local port forwarding). |
 | 🌐 [`gateway/`](./gateway/) | [`diagram.jpg`](./gateway/diagram.jpg) | [README](./gateway/README.md) — **custom domain** → **API Gateway** → **ALB** → **Docker** on **ECS** (and optional **EC2** targets). |
+| 🔐 [`password-policies-iam/`](./password-policies-iam/) | — (guide) | [README](./password-policies-iam/README.md) — **IAM account password policy**, rotation, reuse prevention, **MFA**, Access Analyzer, checklist. |
 
 #### 🖼️ Previews
 **🏗️ [Complete AWS infrastructure](./complete-infrastructure/README.md)**  
